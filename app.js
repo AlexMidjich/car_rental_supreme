@@ -19,6 +19,10 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+app.get('/login', (req, res) => {
+  res.render('login');
+});
+
 MongoClient.connect(url, (error, database) => {
   if(error) return console.log(error);
   database.collection('cars').find({}).toArray((error, result) => {

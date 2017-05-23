@@ -1,0 +1,11 @@
+html(lang='en')
+	include includes/head.pug
+	body
+	section(class='container')
+		h1 Car Rental Supreme
+		h3 Logga in hyr din bil hos oss!
+		form(method='post' action='/login')
+			input(type='Email', placeholder='Email', name='email')
+			input(type='Password', placeholder='Lösenord' name='password')
+			input(type='submit')
+include includes/scripts.pug      
