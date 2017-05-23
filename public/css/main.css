@@ -1,1 +1,17 @@
+body{
+  background-color: #f8f8f8;
+}
+h1 {
+  padding-top: 100px;
+  text-align: center;
+}
+h3{
+  text-align: center;
+}
+th{
+  padding: 20px;
+}
 
+#tableheadline{
+  background-color: #546577;
+}
