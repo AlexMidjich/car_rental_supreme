@@ -15,3 +15,14 @@ th{
 #tableheadline{
   background-color: #546577;
 }
+
+form{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+input{
+  width: 200px;
+}
