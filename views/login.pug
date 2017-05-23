@@ -4,8 +4,12 @@ html(lang='en')
 	section(class='container')
 		h1 Car Rental Supreme
 		h3 Logga in hyr din bil hos oss!
-		form(method='post' action='/login')
-			input(type='Email', placeholder='Email', name='email')
-			input(type='Password', placeholder='Lösenord' name='password')
-			input(type='submit')
+		
+		include includes/nav.pug
+		
+		div(id='wrapper')
+			form(method='post' action='/login')
+				input(type='Email', placeholder='Email', name='email')
+				input(type='Password', placeholder='Lösenord' name='password')
+				input(id='loginbtn' type='submit')
 include includes/scripts.pug      

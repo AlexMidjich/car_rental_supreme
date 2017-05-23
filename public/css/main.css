@@ -8,22 +8,75 @@ h1 {
 h3{
   text-align: center;
 }
-th{
-  padding: 20px;
+
+/*Navigation*/
+#navbar{
+  width: 100%;
+  height: 50px;
+  background: #222222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+#navbar ul{
+  list-style-type: none;
+}
+#navbar ul li{
+  display: inline-block;
+  padding-left: 20px;
+}
+#navbar ul li a{
+  color: #ffffff;
 }
 
-#tableheadline{
-  background-color: #546577;
+/*Index*/
+p{
+  text-align: center;
 }
 
+/*Login*/
+#wrapper{
+  background: #222222;
+  width: 500px;
+  height: 350px;
+  position: relative;
+  left: 28%;
+}
 form{
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-top: 100px;
 }
 input{
-  width: 200px;
-  margin-top: 2px;
+
+  border: none;
+  border-bottom: 1px solid;
+	background: transparent;
+	margin-bottom: 10px;
+	padding: 10px;
+	width: 350px;
+  color: #ffffff;
+}
+#loginbtn{
+  background: #00FF34;
+  border-radius: 10px;
+  font-size: 1.5em;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 350px;
+}
+
+/* Hyr */
+
+th{
+  padding: 20px;
+}
+#tableheadline{
+  background-color: #546577;
+
 }

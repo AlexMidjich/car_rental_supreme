@@ -1,0 +1,41 @@
+html(lang='en')
+  include includes/head.pug
+  body
+    section(class='container')
+      h1 Car Rental Supreme
+      h3 Hyr din bil hos oss!
+      
+      include includes/nav.pug
+      
+      div(class='tablewrapper')
+        table
+          tr(id="tableheadline")
+            th Typ
+          tr
+            th Märke
+            th
+            th(id='marke')
+          tr
+            th 2-sits
+          tr
+            th 5-sits
+          tr
+            th 7-sits
+          tr
+            th Automat
+            th
+            th(id='vaxel')  
+          tr
+            th Takräcke
+            th
+            th(id="racke")  
+          tr
+            th Dragkrok
+            th
+            th(id='krok')
+          tr
+            th Pris/dag
+            th  
+            th(id='pris')
+    
+include includes/scripts.pug  
