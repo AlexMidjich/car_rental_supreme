@@ -12,8 +12,12 @@ app.use(bodyParser.urlencoded({
 
 MongoClient.connect(url, (error, database) => {
   if(error) return console.log(error);
-  console.log('Succes!!!');
   database.collection('cars').find({}).toArray((error, result) => {
-    console.log(result);
+    console.log("Märke: " + result[1].brand);
+    console.log("Växellåda: " + result[1].gear);
+    console.log("Takräcke: " + result[1].rails);
+    console.log("Sitsar: " + result[1].seats);
+    console.log("Dragkrok: " + result[1].tow);
+    console.log("Pris/dag: " + result[1].price);
   });
 });

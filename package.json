@@ -1,0 +1,31 @@
+{
+  "name": "car_rental_supreme",
+  "version": "1.0.0",
+  "description": "A booking application for a car rental",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexMidjich/car_rental_supreme.git"
+  },
+  "keywords": [
+    "mongodb",
+    "mlab",
+    "node",
+    "express",
+    "pug"
+  ],
+  "author": "Alexander Midjich & Simon Skoglund",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexMidjich/car_rental_supreme/issues"
+  },
+  "homepage": "https://github.com/AlexMidjich/car_rental_supreme#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "pug": "^2.0.0-rc.1"
+  }
+}
