@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({
 }));
 //load routes
 const login = require('./modules/login')(app);
+const registrera = require('./modules/registrera')(app);
 const hyr = require('./modules/hyr')(app);
 
 app.use('/public', express.static('public'))
