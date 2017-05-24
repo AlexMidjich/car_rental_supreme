@@ -19,8 +19,5 @@ app.set('view engine', 'pug')
 app.get('/', (req, res) => {
   res.render('index');
 });
-app.get('/hyr', (req, res) => {
-  res.render('hyr');
-});
 
 server.listen(port);
