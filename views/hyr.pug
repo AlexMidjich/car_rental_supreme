@@ -10,31 +10,26 @@ html(lang='en')
       h2 Sortera fram vilken bil du är intresserad av.
       
       div(id='dropdownwrapper')
-        form(class='hyrform')
+        form(class='hyrform' method="post" action="/hyr")
           select(name='sits')
             option(value='Sits' id='0') Antal sitsar
-            option(value='2-sits' id='1') 2-sits
-            option(value='5-sits' id='2') 5-sits
-            option(value='7-sits' id='3') 7-sits
-
-        form(class='hyrform')
+            option(value='2' id='1') 2-sits
+            option(value='5' id='2') 5-sits
+            option(value='7' id='3') 7-sits
           select(name='vaxel')
-            option(value='vaxel' id='4') Växellåda
-            option(value='ja' id='5') Automat
-            option(value='nej' id='6') Manuell
-                        
-        form(class='hyrform')
+            option(value='Inget val' id='4') Växellåda
+            option(value='Automat' id='5') Automat
+            option(value='Manuell' id='6') Manuell
           select(name='tak')
-            option(value='tak' id='7') Takräcke
+            option(value='Inget val' id='7') Takräcke
             option(value='ja' id='8') Ja
             option(value='nej' id='9') Nej        
-
-        form(class='hyrform')
-          select(name='tak')
-            option(value='tak' id='10') Takräcke
+          select(name='dragkrok')
+            option(value='Inget val' id='10') Dragkrok
             option(value='ja' id='11') Ja
             option(value='nej' id='12') Nej 
-            
-        button(id='hyrbtn') Hitta din bil               
+          
+          input(type="submit" id="hyrbtn")  
+               
           
 include includes/scripts.pug  
