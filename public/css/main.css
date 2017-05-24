@@ -71,7 +71,7 @@ input[type="number"] {
 -moz-appearance: textfield;
 }
 
-#loginbtn{
+.submitbtn{
   background: #00FF34;
   border-radius: 10px;
   font-size: 1.5em;
