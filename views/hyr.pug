@@ -7,35 +7,34 @@ html(lang='en')
       
       include includes/nav.pug
       
-      div(class='tablewrapper')
-        table
-          tr(id="tableheadline")
-            th Typ
-          tr
-            th Märke
-            th
-            th(id='marke')
-          tr
-            th 2-sits
-          tr
-            th 5-sits
-          tr
-            th 7-sits
-          tr
-            th Automat
-            th
-            th(id='vaxel')  
-          tr
-            th Takräcke
-            th
-            th(id="racke")  
-          tr
-            th Dragkrok
-            th
-            th(id='krok')
-          tr
-            th Pris/dag
-            th  
-            th(id='pris')
-    
+      h2 Sortera fram vilken bil du är intresserad av.
+      
+      div(id='dropdownwrapper')
+        form(class='hyrform')
+          select(name='sits')
+            option(value='Sits' id='0') Antal sitsar
+            option(value='2-sits' id='1') 2-sits
+            option(value='5-sits' id='2') 5-sits
+            option(value='7-sits' id='3') 7-sits
+
+        form(class='hyrform')
+          select(name='vaxel')
+            option(value='vaxel' id='4') Växellåda
+            option(value='ja' id='5') Automat
+            option(value='nej' id='6') Manuell
+                        
+        form(class='hyrform')
+          select(name='tak')
+            option(value='tak' id='7') Takräcke
+            option(value='ja' id='8') Ja
+            option(value='nej' id='9') Nej        
+
+        form(class='hyrform')
+          select(name='tak')
+            option(value='tak' id='10') Takräcke
+            option(value='ja' id='11') Ja
+            option(value='nej' id='12') Nej 
+            
+        button(id='hyrbtn') Hitta din bil               
+          
 include includes/scripts.pug  
