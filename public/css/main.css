@@ -72,11 +72,24 @@ input{
 }
 
 /* Hyr */
-
-th{
-  padding: 20px;
+#dropdownwrapper{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  padding-top: 40px;
 }
-#tableheadline{
-  background-color: #546577;
-
+.hyrform{
+  width: 100px;
+  padding: 0px;
+}
+option {
+  width: 100px;
+}
+#hyrbtn{
+  background: #00FF34;
+  border-radius: 10px;
+  font-size: 1.5em;
+  color: white;
+  border: none;
+  padding: 10px;
 }

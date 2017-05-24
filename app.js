@@ -11,12 +11,16 @@ app.use(bodyParser.urlencoded({
 }));
 //load routes
 const login = require('./modules/login')(app);
+const hyr = require('./modules/hyr')(app);
 
 app.use('/public', express.static('public'))
 app.set('view engine', 'pug')
 
 app.get('/', (req, res) => {
   res.render('index');
+});
+app.get('/hyr', (req, res) => {
+  res.render('hyr');
 });
 
 server.listen(port);
