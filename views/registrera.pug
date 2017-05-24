@@ -8,12 +8,12 @@ html(lang='en')
 		include includes/nav.pug
 		
 		div(id='wrapper')
-			form(method='post' action='/login')
+			form(method='post' action='/registrera')
 				input(type='Text', placeholder='Förnamn', name='fname')
 				input(type='Text', placeholder='Efternamn', name='ename')
 				input(type='Number', placeholder='Mobilnummer', name='phone')
 				input(type='Email', placeholder='Email', name='email')
 				input(type='Password', placeholder='Lösenord' name='password')
 				input(type='Password', placeholder='Repitera lösenord' name='password2')
-				input(id='loginbtn' type='submit')
+				input(type='submit')
 include includes/scripts.pug      

@@ -8,7 +8,5 @@ module.exports = function(app){
 	
 	app.post('/registrera', (req, res) =>{
 		console.log(req.body);
-		checkUser(req.body.email, md5(req.body.password));
-		res.redirect("http://google.com");
 	});
 }
