@@ -11,25 +11,53 @@ html(lang='en')
       
       div(id='dropdownwrapper')
         form(class='hyrform' method="post" action="/hyr")
-          select(name='sits')
-            option(value='Sits' id='0') Antal sitsar
-            option(value='2' id='1') 2-sits
-            option(value='5' id='2') 5-sits
-            option(value='7' id='3') 7-sits
-          select(name='vaxel')
-            option(value='Inget val' id='4') Växellåda
+          select(name='seats')
+            option(value='' id='0') Antal sitsar
+            option(value='2-sits' id='1') 2-sits
+            option(value='5-sits' id='2') 5-sits
+            option(value='7-sits' id='3') 7-sits
+          select(name='gear')
+            option(value='' id='4') Växellåda
             option(value='Automat' id='5') Automat
             option(value='Manuell' id='6') Manuell
-          select(name='tak')
-            option(value='Inget val' id='7') Takräcke
-            option(value='ja' id='8') Ja
-            option(value='nej' id='9') Nej        
-          select(name='dragkrok')
-            option(value='Inget val' id='10') Dragkrok
-            option(value='ja' id='11') Ja
-            option(value='nej' id='12') Nej 
+          select(name='rails')
+            option(value='' id='7') Takräcke
+            option(value='Ja' id='8') Ja
+            option(value='Nej' id='9') Nej        
+          select(name='tow')
+            option(value='' id='10') Dragkrok
+            option(value='Ja' id='11') Ja
+            option(value='Nej' id='12') Nej
+          Boka från:  
+          input(type='date' name='bokningsstart' class='datum') 
+          Boka till:
+          input(type='date' name='bokningstop' class='datum')  
+              
           
           input(type="submit" id="hyrbtn")  
-               
+          
+      if results
+        table
+          tr(id="tablehead")
+            th Märke 
+            th Pris/dag
+            th Takräcke
+            th Dragkrok
+            th Växel
+            th Antal sitsar
+          each val in results
+              tr
+                th=  val.brand 
+                th=  val.price
+                th=  val.rails
+                th=  val.tow
+                th=  val.gear
+                th=  val.seats
+                th 
+                  button(id="bokabtn") Boka  
+          else
+            h3 Inga resultat
+            
+                 
           
 include includes/scripts.pug  
