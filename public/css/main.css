@@ -87,11 +87,28 @@ input[type="number"] {
   padding-top: 40px;
 }
 .hyrform{
-  width: 100px;
+  width: 100%;
   padding: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
-option {
-  width: 500px;
+select {
+  width: 100px;
+  height: 40px;
+  border: none;
+  margin: 10px;
+  flex-grow: 2;
+}
+.datum{
+  border: none;
+  margin-bottom: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-left: 10px;
+  color: #000000;
+  width: 200px;
+  background-color: #ffffff;
 }
 #hyrbtn{
   background: #00FF34;
@@ -101,5 +118,24 @@ option {
   border: none;
   padding: 10px;
   margin-top: 10px;
+  width: 100px;
+}
+#tablehead{
+  background-color: #2F55E8;
+}
+#tablehead th{
+  color: #ffffff;
+}
+th{
+  padding: 10px;
+}
+#bokabtn{
+  background: #2F55E8;
+  border-radius: 5px;
+  font-size: 1.0em;
+  text-align: center;
+  color: white;
+  border: none;
+  padding: 5px;
   width: 100px;
 }
