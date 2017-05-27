@@ -1,6 +1,6 @@
 const md5 = require('md5');
 const mongo = require('./mongo');
-const emailwrapper = require('/email');
+const emailwrapper = require('./email');
 
 //returns object with corrected data or error with string of errors.
 function checkInput(data, res){
