@@ -37,19 +37,36 @@ function checkInput(data, res){
 		}else{
 			obj.user.password = md5(data.password);
 		}
-		console.log(obj);
 		if(obj.error){
 			res.render('registrera', {'err': obj.errmsg});
 		}else{
-			
+			addUser(obj.user, res);
 		}
 	});
 
 }
 
-function addUser(data){
-	var res = mongo.db.collection('users').insertOne();
-	
+function addUser(user, res){
+	//var res = mongo.db.collection('users').insertOne();
+	mongo.db.collection('users').find({}).toArray((error, result) => {
+		//generate activation id
+		var aid = ""
+		while(true){
+			aid = md5(Math.random());
+			var nomatch = 0;
+			for(var i = 0; i < result.length; i++){
+				if(result[i].active_id !== aid)
+					nomatch++;
+			}
+			if(nomatch == result.length)
+				break;
+		}
+		user.admin = 0;
+		user.active = 0;
+		user.active_id = aid;
+		user.session_id = '0';
+		console.log(user);
+	});
 }
 
 module.exports = function(app){
@@ -60,5 +77,8 @@ module.exports = function(app){
 	app.post('/registrera', (req, res) =>{
 		console.log(req.body);
 		checkInput(req.body, res);
+	});
+	app.post('/registrera', (req, res) =>{
+		req.query.activationId;
 	});
 }
