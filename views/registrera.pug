@@ -8,6 +8,9 @@ html(lang='en')
 		include includes/nav.pug
 		
 		div(id='wrapper')
+			if err
+				each val in err
+					h4=val
 			form(method='post' action='/registrera')
 				input(type='Text', placeholder='Förnamn', name='fname')
 				input(type='Text', placeholder='Efternamn', name='ename')
