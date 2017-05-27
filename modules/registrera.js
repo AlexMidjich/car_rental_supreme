@@ -66,6 +66,7 @@ function addUser(user, res){
 		user.active_id = aid;
 		user.session_id = '0';
 		console.log(user);
+		
 	});
 }
 
