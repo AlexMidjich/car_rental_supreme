@@ -23,20 +23,28 @@ module.exports = function(app){
 
 
 app.post('/bekrafta', (req, res) => {
-  mongo.db.collection('cars').update(  {_id : new mdb.ObjectId(req.body.id)} , { $set: {
-		"bokningar": {
-			bokningsstart : req.body.start,
-			bokningsstop : req.body.stop
-		  }
-	}
-}, function (error, result) {
-		if(error) {
-			console.log(error);
-		} else {
-			console.log(req.body.start);
-			console.log("Bokningen bekräftad");
-			//res.redirect('/', {"data": req.body, message: "Bil bokad!"});
-		}
+	
+	mongo.db.collection('users').findOne({email: req.session.user.email}, function(error, userResult){
+		console.log(userResult);
+		if(userResult.session_id == req.session.user.session_id)
+		{
+			mongo.db.collection('cars').update(  {_id : new mdb.ObjectId(req.body.id)} , { $push: {
+				"bokningar": {
+					bokningsstart : req.body.start,
+					bokningsstop : req.body.stop
+				}
+			}
+			}, function (error, result) {
+				if(error) {
+					console.log(error);
+				} else {
+					console.log(req.body.start);
+					console.log("Bokningen bekräftad");
+					//res.redirect('/', {"data": req.body, message: "Bil bokad!"});
+				}
+			});
+		}else
+			res.redirect('/hyr');
 	});
 
 });
