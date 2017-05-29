@@ -1,12 +1,17 @@
 const mongo = require('./mongo');
 
+//Renderar hyr sidan
 module.exports = function(app){
 	app.get('/hyr', (req, res) => {
+
 		if(!req.session.user)
 			res.redirect('/');
 		else
 			res.render('hyr');
 	});
+  
+  /*När användaren fyllt i data från input fälten i hyr.pug och tryckt på "skicka"knappen så startar app.post.
+scriptet kollar mot databasen, om det finns värden i de olika objekten så kommer objekten att visas.*/
 	app.post('/hyr', (req, res) => {
 		console.log(req.body)
 		if(!req.session.user)
