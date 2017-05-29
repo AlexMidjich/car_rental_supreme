@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({
 const login = require('./modules/login')(app);
 const registrera = require('./modules/registrera')(app);
 const hyr = require('./modules/hyr')(app);
+const bekrafta = require('./modules/bekrafta')(app);
 
 app.use('/public', express.static('public'))
 app.set('view engine', 'pug')
