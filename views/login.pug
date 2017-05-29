@@ -8,6 +8,8 @@ html(lang='en')
 		include includes/nav.pug
 		
 		div(id='wrapper')
+			if err
+				h4=err
 			form(method='post' action='/login' class="loginform")
 				input(type='Email', placeholder='Email', name='email')
 				input(type='Password', placeholder='Lösenord' name='password')
