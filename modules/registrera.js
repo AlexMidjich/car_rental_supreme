@@ -60,14 +60,18 @@ function addUser(user, res){
 
 module.exports = function(app){
 	app.get('/registrera', (req, res) => {
-		res.render('registrera');
+		if(req.session.user)
+			res.redirect('/hyr');
+		else
+			res.render('registrera');
 	});
 	
 	app.post('/registrera', (req, res) =>{
-		console.log(req.body);
-		checkInput(req.body, res);
-	});
-	app.post('/registrera', (req, res) =>{
-		req.query.activationId;
+		if(req.session.user)
+			res.redirect('/hyr');
+		else {
+			console.log(req.body);
+			checkInput(req.body, res);
+		}
 	});
 }

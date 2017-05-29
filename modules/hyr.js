@@ -9,9 +9,8 @@ module.exports = function(app){
 	});
 	app.post('/hyr', (req, res) => {
 		console.log(req.body)
-		if(!req.session.user){
+		if(!req.session.user)
 			res.redirect('/');
-		}
 		var search = {};
 		if(req.body.seats !== '')
 			search.seats = req.body.seats;

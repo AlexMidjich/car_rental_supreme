@@ -9,7 +9,8 @@ function checkUser(email, password, req, res){
 	mongo.db.collection('users').find({"email" : email}).toArray((error, result) => {
 		if(result[0].password === password){
 			var new_id = md5((new Date).getTime().toString() + email);
-			mongo.db.collection('cars').update(  {_id : new mdb.ObjectId(result[0]._id)} , { $set: {"session_id": new_id}}, function (error, result2) {
+			console.log(result[0]._id);
+			mongo.db.collection('users').update(  {_id : new mdb.ObjectId(result[0]._id)} , { $set: {session_id: new_id}}, function (error, result2) {
 				if(error) {
 					res.render('login');
 					console.log(error);
