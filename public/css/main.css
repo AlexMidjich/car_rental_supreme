@@ -8,6 +8,11 @@ h1 {
 h3{
   text-align: center;
 }
+h4{
+	padding-left: 5px;
+	padding-top: 5px;
+	color: rgb(255,100,100);
+}
 
 /*Navigation*/
 #navbar{
