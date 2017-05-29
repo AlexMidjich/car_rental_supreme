@@ -43,7 +43,7 @@ p{
   position: relative;
   left: 28%;
 }
-form{
+.loginform{
   width: 100%;
   display: flex;
   justify-content: center;
@@ -103,11 +103,9 @@ select {
 .datum{
   border: none;
   margin-bottom: 0px;
-  margin-left: 10px;
-  margin-right: 10px;
-  padding-left: 10px;
+  margin: 10px;
   color: #000000;
-  width: 200px;
+  width: 170px;
   background-color: #ffffff;
 }
 #hyrbtn{
@@ -116,7 +114,7 @@ select {
   font-size: 1.5em;
   color: white;
   border: none;
-  padding: 10px;
+  padding: 5px;
   margin-top: 10px;
   width: 100px;
 }
@@ -129,6 +127,9 @@ select {
 th{
   padding: 10px;
 }
+#bilval{
+  width: 20px;
+}
 #bokabtn{
   background: #2F55E8;
   border-radius: 5px;
@@ -138,4 +139,7 @@ th{
   border: none;
   padding: 5px;
   width: 100px;
+}
+.hidden{
+  display: none;
 }

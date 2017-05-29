@@ -8,7 +8,7 @@ html(lang='en')
 		include includes/nav.pug
 		
 		div(id='wrapper')
-			form(method='post' action='/login')
+			form(method='post' action='/login' class="loginform")
 				input(type='Email', placeholder='Email', name='email')
 				input(type='Password', placeholder='Lösenord' name='password')
 				input(class='submitbtn' type='submit')
