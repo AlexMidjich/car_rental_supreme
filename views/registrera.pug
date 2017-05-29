@@ -8,14 +8,10 @@ html(lang='en')
 		include includes/nav.pug
 		
 		div(id='wrapper')
-<<<<<<< HEAD
-			form(method='post' action='/registrera' class="loginform")
-=======
 			if err
 				each val in err
 					h4=val
-			form(method='post' action='/registrera')
->>>>>>> 0b01a1721ce189d2e5c7db37b4defe4d034f2b28
+			form(method='post' action='/registrera' class="loginform")
 				input(type='Text', placeholder='Förnamn', name='fname')
 				input(type='Text', placeholder='Efternamn', name='ename')
 				input(type='Number', placeholder='Mobilnummer', name='phone')
