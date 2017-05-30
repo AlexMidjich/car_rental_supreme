@@ -1,0 +1,58 @@
+html(lang='en')
+	include includes/head.pug
+	body
+		section(class='container')
+			h1 redigera databas:
+			if err
+				h2=err
+			h2 lägg till bil:
+			form(class='hyrform' method="post" action="/edit")
+				input(type='text' name='brand' placeholder='märke')
+				input(type='number' name='price' placeholder='pris/dag')
+				select(name='seats')
+					option(value='' id='0') Antal sitsar
+					option(value='2-sits' id='1') 2-sits
+					option(value='5-sits' id='2') 5-sits
+					option(value='7-sits' id='3') 7-sits
+				select(name='gear')
+					option(value='' id='4') Växellåda
+					option(value='Automat' id='5') Automat
+					option(value='Manuell' id='6') Manuell
+				select(name='rails')
+					option(value='' id='7') Takräcke
+					option(value='Ja' id='8') Ja
+					option(value='Nej' id='9') Nej        
+				select(name='tow')
+					option(value='' id='10') Dragkrok
+					option(value='Ja' id='11') Ja
+					option(value='Nej' id='12') Nej 
+				input(type="submit" value='Lägg till' id="hyrbtn")  
+        
+			if cars
+				table
+					tr(id="tablehead")
+					th Märke 
+					th Pris/dag
+					th Takräcke
+					th Dragkrok
+					th Växel
+					th Antal sitsar
+
+					each val in cars
+				
+						tr 
+							th=  val.brand 
+							th=  val.price
+							th=  val.rails
+							th=  val.tow
+							th=  val.gear
+							th=  val.seats
+							th
+								button(class='button' onclick='edit()') Redigera
+							th
+								button(class='button') Ta bort
+			else
+				h3 Inga resultat
+
+include includes/scripts.pug  
+script(src='public/js/main.js')
