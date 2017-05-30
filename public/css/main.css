@@ -61,6 +61,9 @@ p{
   padding-top: 100px;
   padding-bottom: 50px;
 }
+form{
+	margin-bottom: 0px;
+}
 input{
   border: none;
   border-bottom: 1px solid;
@@ -117,6 +120,16 @@ select {
   width: 170px;
   background-color: #ffffff;
 }
+.button{
+  background: #00FF34;
+  border-radius: 10px;
+  font-size: 1.5em;
+  color: white;
+  border: none;
+  padding: 5px;
+  margin-bottom: 0px;
+  width: auto;
+}
 #hyrbtn{
   background: #00FF34;
   border-radius: 10px;
@@ -125,7 +138,7 @@ select {
   border: none;
   padding: 5px;
   margin-top: 10px;
-  width: 100px;
+  width: auto;
 }
 #tablehead{
   background-color: #2F55E8;
