@@ -5,13 +5,13 @@ html(lang='en')
       h1 Car Rental Supreme
       h3 Hyr din bil hos oss!
       
-      include includes/nav.pug
+      include includes/navlogedin.pug
       
       h2 Bekräfta din bokning nedan!
       
       div(class='wrapper')
         table(id="confirmtable")
-          -var ID = data.id;
+          -var carid = data.id;
           -var start = data.start;
           -var stop = data.stop;
           -var brand = data.brand;
@@ -20,52 +20,48 @@ html(lang='en')
           -var gear = data.gear;
           -var seats = data.seats;
           -var price = data.price;
-          
 
           tr
-            th BilID
-            th= ID
-          tr
-            th Start datum
-            th= start
-          tr
-            th Slut datum
-            th= stop
-          tr
-            th Märke
+            th Märke:
             th= brand
           tr
-            th Takräcke
-            th= rails
+            th Bil ID:
+            th= carid
           tr
-            th Dragkrok
-            th= tow
-          tr
-            th Växel
+            th Växel:
             th= gear
           tr
-            th Antal platser
-            th= seats  
+            th Takräcke:
+            th= rails   
           tr
-            th Pris/dag(sek)
-            th= price                 
-          //  
-            each val in data
-              li= data.id
-              li= data.start
-              li= data.stop
-              li= data.brand
-              li= data.rails
-              li= data.tow
-              li= data.gear
-              li= data.seats
-              li= data.price 
+            th Dragkrok:
+            th= tow   
+          tr
+            th Antal platser:
+            th= seats                    
+          tr
+            th Hyr från:
+            th= start
+          tr
+            th Hyr till:
+            th= stop
+          tr
+            th Pris/dag(sek):
+            th= price  
+          tr
+            th Totalpris:
+            th 
+              div(id='answ')  
+          tr  
+            th
+              button(id='calc') Beräkna totalpris                     
               
         form(method='post' action='/bekrafta')
           input(type="text" value=data.id name='id' class='hidden')
-          input(type="text" value=data.start name='start' class='hidden')
-          input(type="text" value=data.stop name='stop' class='hidden')
-          input(type='submit' value="Bekräfta" id="bokabtn") 
+          input(type="text" value=data.start name='start' class='hidden' id="dateOne")
+          input(type="text" value=data.stop name='stop' class='hidden' id="dateTwo")
+          input(type="text" value=data.price name='price' class='hidden' id="price")
+          input(type='submit' value="Bekräfta bokning" id="bokabtn") 
                  
           
 include includes/scripts.pug  
