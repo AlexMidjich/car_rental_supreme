@@ -33,13 +33,35 @@ scriptet kollar mot databasen, om det finns värden i de olika objekten så komm
 		console.log(search);
 
 		mongo.db.collection('cars').find(search).toArray((error, result) => {
-			console.log("length", result.length);
+			//console.log("length", result.length);
+			var sorted = [];
 			for(i=0; i<result.length; i++){
-				console.log(result[i]);
+				//console.log(result[i]);
+				var firstDate_ms = Date.parse(req.body.bokningsstart);
+				var secondDate_ms = Date.parse(req.body.bokningsstop);
+				if(result[i].bokningar){
+					for(m=0; m<result[i].bokningar.length; m++) {
+						console.log(i + ',' + m);
+						var startDate = Date.parse(result[i].bokningar[m].bokningsstart);
+						var stopDate = Date.parse(result[i].bokningar[m].bokningsstop);
+						if(firstDate_ms >= startDate && firstDate_ms <= stopDate)
+							break;
+						if(secondDate_ms >= startDate && secondDate_ms <= stopDate)
+							break;
+						if(startDate >= firstDate_ms && startDate <= secondDate_ms)
+							break;
+						if(stopDate >= firstDate_ms && stopDate <= secondDate_ms)
+							break;
+
+						sorted.push(result[i]);
+					}
+				}else {
+					sorted.push(result[i]);
+				}
 				result[i].bokningsstart = req.body.bokningsstart;
 				result[i].bokningsstop = req.body.bokningsstop;
 			}
-			res.render('hyr', { "results" :result });
+			res.render('hyr', { "results" :sorted });
 		});
 	});
 /*app.patch('/hyr', (req, res) =>{

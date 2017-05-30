@@ -1,4 +1,6 @@
 $(document).ready(function(){
+  //This function makes sure that the datepicker on "hyr" page is working on browser that dose'nt support html5
+  //With the use of Modernizr the function checks automaticly to see if there is browsersupport.
   $(function(){
       if (!Modernizr.inputtypes.date) {
       // If not native HTML5 support, fallback to jQuery datePicker
