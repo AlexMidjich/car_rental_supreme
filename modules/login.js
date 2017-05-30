@@ -1,7 +1,6 @@
 const md5 = require('md5');
 const mongo = require('./mongo');
 const mdb = require('mongodb');
-const session = require('express-session');
 
 function checkUser(email, password, req, res){
 	console.log(password);
