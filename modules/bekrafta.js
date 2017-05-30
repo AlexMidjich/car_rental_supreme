@@ -6,6 +6,7 @@ module.exports = function(app){
 		console.log(req.query.id);
 		console.log(req.query.start);
 		console.log(req.query.stop);
+
 		res.render('bekrafta', {"data": req.query}); //När sidan bekrafta laddas så hämtas datan som ska användas via urlen.
 });
 

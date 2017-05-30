@@ -153,6 +153,23 @@ th{
   width: 20px;
 }
 #bokabtn{
+  background: #00FF34;
+  border-radius: 5px;
+  font-size: 1.0em;
+  text-align: center;
+  color: #ffffff;;
+  border: none;
+  padding: 5px;
+  width: 150px;
+  margin-top: 10px;
+}
+.hidden{
+  display: none;
+}
+#confirmtable{
+  color: #ffffff;
+}
+#calc{
   background: #2F55E8;
   border-radius: 5px;
   font-size: 1.0em;
@@ -162,10 +179,4 @@ th{
   padding: 5px;
   width: 100px;
   margin-top: 10px;
-}
-.hidden{
-  display: none;
-}
-#confirmtable{
-  color: #ffffff;
 }
