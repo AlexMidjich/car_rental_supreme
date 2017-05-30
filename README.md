@@ -8,3 +8,8 @@
  
  <p>Authors: Alexander Midjich and Simon Skoglund</p>
  
+
+<p>To edit the database, login with 'lol@lolmail.com','password'. after login manualy navigate to /edit<p>
+<li>post- add new car. Returns html
+<li>delete- delete one car by id. Returns json
+<li>patch- update car information. returns json
