@@ -28,8 +28,8 @@ html(lang='en')
             option(value='' id='10') Dragkrok
             option(value='Ja' id='11') Ja
             option(value='Nej' id='12') Nej
-          input(type='date' name='bokningsstart' class='datum') 
-          input(type='date' name='bokningsstop' class='datum')  
+          input(type='date' name='bokningsstart' class='datum' id="dateOne" min="2014-01-01" disabled) 
+          input(type='date' name='bokningsstop' class='datum' id="dateTwo")  
               
           input(type="submit" id="hyrbtn")  
         
@@ -44,6 +44,7 @@ html(lang='en')
             th Antal sitsar
             th Boka från
             th Boka till
+            th Totalpris
 
           each val in results
             
@@ -56,8 +57,10 @@ html(lang='en')
                 th=  val.seats
                 th=  val.bokningsstart
                 th=  val.bokningsstop
-                th 
-                  a(href="/bekrafta?id=" + val._id + "&start=" + val.bokningsstart  + "&stop=" + val.bokningsstop) Boka
+                th=  val.totalpris
+                th
+                  //URLen som skickas med till sidan "bekrafta" kommer innehålla alla värden från bokningen. 
+                  a(href="/bekrafta?id=" + val._id + "&start=" + val.bokningsstart  + "&stop=" + val.bokningsstop + "&brand=" + val.brand + "&rails=" + val.rails + "&tow=" + val.tow + "&gear=" + val.gear + "&seats=" + val.seats + "&price=" + val.price id="boka") Boka
 
           else
               h3 Inga resultat
