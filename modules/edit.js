@@ -49,6 +49,6 @@ module.exports = function(app){
 		
 	});
 	app.delete('/edit', (req, res) =>{
-		
+		console.log('delete called');
 	});
 }
