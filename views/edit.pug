@@ -48,13 +48,11 @@ html(lang='en')
 							th=  val.gear
 							th=  val.seats
 							th
-								a(href="/edit/car?id=" + val._id)
-									button(class='button') Redigera
+								button(class='button' onclick='edit()') Redigera
 							th
-								form(method="delete" action="/edit")
-									input(type=val._id class='hidden')
-									input(type="submit" value='Ta bort' class='button')
+								button(class='button') Ta bort
 			else
 				h3 Inga resultat
 
 include includes/scripts.pug  
+script(src='public/js/main.js')
