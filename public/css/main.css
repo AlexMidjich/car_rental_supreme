@@ -41,12 +41,16 @@ p{
 }
 
 /*Login*/
-#wrapper{
+.wrapper{
   background: #222222;
   width: 500px;
   height: auto;
   position: relative;
   left: 28%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .loginform{
   width: 100%;
@@ -144,7 +148,11 @@ th{
   border: none;
   padding: 5px;
   width: 100px;
+  margin-top: 10px;
 }
 .hidden{
   display: none;
+}
+#confirmtable{
+  color: #ffffff;
 }

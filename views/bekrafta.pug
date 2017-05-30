@@ -9,12 +9,63 @@ html(lang='en')
       
       h2 Bekräfta din bokning nedan!
       
+      div(class='wrapper')
+        table(id="confirmtable")
+          -var ID = data.id;
+          -var start = data.start;
+          -var stop = data.stop;
+          -var brand = data.brand;
+          -var rails = data.rails;
+          -var tow = data.tow;
+          -var gear = data.gear;
+          -var seats = data.seats;
+          -var price = data.price;
+          
 
-      form(method='post' action='/bekrafta')
-        input(type="text" value=data.id name='id' class='hidden')
-        input(type="text" value=data.start name='start' class='hidden')
-        input(type="text" value=data.stop name='stop' class='hidden')
-        input(type='submit' value="Bekräfta" id="bokabtn") 
+          tr
+            th BilID
+            th= ID
+          tr
+            th Start datum
+            th= start
+          tr
+            th Slut datum
+            th= stop
+          tr
+            th Märke
+            th= brand
+          tr
+            th Takräcke
+            th= rails
+          tr
+            th Dragkrok
+            th= tow
+          tr
+            th Växel
+            th= gear
+          tr
+            th Antal platser
+            th= seats  
+          tr
+            th Pris/dag(sek)
+            th= price                 
+          //  
+            each val in data
+              li= data.id
+              li= data.start
+              li= data.stop
+              li= data.brand
+              li= data.rails
+              li= data.tow
+              li= data.gear
+              li= data.seats
+              li= data.price 
+              
+        form(method='post' action='/bekrafta')
+          input(type="text" value=data.id name='id' class='hidden')
+          input(type="text" value=data.start name='start' class='hidden')
+          input(type="text" value=data.stop name='stop' class='hidden')
+          input(type='submit' value="Bekräfta" id="bokabtn") 
                  
           
 include includes/scripts.pug  

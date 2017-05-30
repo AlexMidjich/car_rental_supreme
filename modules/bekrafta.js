@@ -6,7 +6,7 @@ module.exports = function(app){
 		console.log(req.query.id);
 		console.log(req.query.start);
 		console.log(req.query.stop);
-		res.render('bekrafta', {"data": req.query});
+		res.render('bekrafta', {"data": req.query}); //När sidan bekrafta laddas så hämtas datan som ska användas via urlen.
 });
 
 /*app.post('/bekrafta', (req, res) =>{
@@ -23,7 +23,7 @@ module.exports = function(app){
 
 
 app.post('/bekrafta', (req, res) => {
-	
+
 	mongo.db.collection('users').findOne({email: req.session.user.email}, function(error, userResult){
 		console.log(userResult);
 		if(userResult.session_id == req.session.user.session_id)
@@ -31,7 +31,8 @@ app.post('/bekrafta', (req, res) => {
 			mongo.db.collection('cars').update(  {_id : new mdb.ObjectId(req.body.id)} , { $push: {
 				"bokningar": {
 					bokningsstart : req.body.start,
-					bokningsstop : req.body.stop
+					bokningsstop : req.body.stop,
+					user : req.session.user.email
 				}
 			}
 			}, function (error, result) {
@@ -40,7 +41,7 @@ app.post('/bekrafta', (req, res) => {
 				} else {
 					console.log(req.body.start);
 					console.log("Bokningen bekräftad");
-					//res.redirect('/', {"data": req.body, message: "Bil bokad!"});
+					res.redirect('/tack');
 				}
 			});
 		}else

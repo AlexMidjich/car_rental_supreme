@@ -17,6 +17,7 @@ const login = require('./modules/login')(app);
 const registrera = require('./modules/registrera')(app);
 const hyr = require('./modules/hyr')(app);
 const bekrafta = require('./modules/bekrafta')(app);
+const tack = require('./modules/tack')(app);
 
 app.use('/public', express.static('public'));
 app.set('view engine', 'pug');
