@@ -30,6 +30,19 @@ function loadList(res){
 	});
 }
 
+function addList(res, obj){
+	if(obj.brand === '' || obj.price == 0 || obj.seats === '' || obj.gear === '' || obj.rails === '' || obj.tow === '')
+		res.render('edit', {err : 'Fyll i alla fält!'});
+	else{
+		mongo.db.collection('cars').insertOne(obj, (error, result) => {
+			if(error)
+				res.render('edit', {err : 'kunde inte lägga till bil.'});
+			else
+				res.render('edit', {err : 'Bil tilllagd.'});
+		});
+	}
+}
+
 module.exports = function(app){
 	app.get('/edit', (req, res) => {
 		checkAdmin(req, function(error){
@@ -43,12 +56,35 @@ module.exports = function(app){
 	});
 	
 	app.post('/edit', (req, res) =>{
-		
+		console.log(req.body);
+		checkAdmin(req, function(error){
+			if(error){
+				console.log(error);
+				res.redirect('/');
+			}else{
+				addList(res, req.body);
+			}
+		});
 	});
+	
 	app.patch('/edit', (req, res) =>{
 		
 	});
+	
 	app.delete('/edit', (req, res) =>{
 		console.log('delete called');
+		console.log(req.query.id);
+		checkAdmin(req, function(error){
+			mongo.db.collection('cars').remove({_id: new mdb.ObjectId(req.query.id)}, (error, result) => {
+				if(error){
+					console.log('delete failed');
+					res.json({success : "Fail", status : 400});
+				}else{
+					console.log('delete done');
+					res.json({success : "Success", status : 200});
+				}
+			});
+		});
+		
 	});
 }
