@@ -1,5 +1,5 @@
 function editCar(data){
-	if(confirm("Press a button!"));
+	window.location = '/editcar?id=' + data.value;
 }
 
 function deleteCar(data){
@@ -17,4 +17,27 @@ function deleteCar(data){
 			}
 		});
 	}
+}
+
+function updateCar(){
+	var car_id = document.getElementById('car_id').value;
+	var brand = document.getElementById('brand').value;
+	var price = document.getElementById('price').value;
+	var rails = document.getElementById('rails').value;
+	var seats = document.getElementById('seats').value;
+	var gear = document.getElementById('gear').value;
+	var tow = document.getElementById('tow').value;
+	
+	callUrl = '/editcar?id=' + car_id + '&brand=' + brand + '&price=' + price + '&rails=' + rails + '&seats=' + seats + '&gear=' + gear + '&tow=' + tow;
+	$.ajax({
+		url: callUrl,
+		type: 'PATCH',
+		success: function() {
+			alert('Bil uppdaterad');
+			window.location.replace('/edit');
+		},
+		error: function(){
+			alert('ändringarna kunde ej göras');
+		}
+	});
 }
