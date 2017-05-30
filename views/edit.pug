@@ -4,7 +4,7 @@ html(lang='en')
 		section(class='container')
 			h1 redigera databas:
 			if err
-				h2=err
+				h4=err
 			h2 lägg till bil:
 			form(class='hyrform' method="post" action="/edit")
 				input(type='text' name='brand' placeholder='märke')
@@ -26,7 +26,7 @@ html(lang='en')
 					option(value='' id='10') Dragkrok
 					option(value='Ja' id='11') Ja
 					option(value='Nej' id='12') Nej 
-				input(type="submit" value='Lägg till' id="hyrbtn")  
+				input(type="submit" value='Lägg till' class="button")  
         
 			if cars
 				table
@@ -48,11 +48,11 @@ html(lang='en')
 							th=  val.gear
 							th=  val.seats
 							th
-								button(class='button' onclick='edit()') Redigera
+								button(class='button' value=val._id onclick='editCar(this)') Redigera
 							th
-								button(class='button') Ta bort
+								button(class='button' value=val._id onclick='deleteCar(this)') Ta bort
 			else
 				h3 Inga resultat
 
-include includes/scripts.pug  
-script(src='public/js/main.js')
+include includes/scripts.pug
+script(src='public/js/ajax.js')

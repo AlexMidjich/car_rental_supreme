@@ -1,0 +1,45 @@
+html(lang='en')
+	include includes/head.pug
+	body
+		section(class='container')
+			h1= 'Redigera Bil: ' +_id
+			h3 fyll bara i de värden du vill ändra
+			table
+				tr(id="tablehead")
+				th Märke 
+				th Pris/dag
+				th Takräcke
+				th Dragkrok
+				th Växel
+				th Antal sitsar
+				tr 
+				th=  brand 
+				th=  price
+				th=  rails
+				th=  tow
+				th=  gear
+				th=  seats
+			form(class='hyrform' method="post" action="/edit")
+				input(id='car_id', class='hidden' value=_id)
+				input(id='brand' type='text' name='brand' placeholder='märke')
+				input(id='price' type='number' name='price' placeholder='pris/dag')
+				select(id='seats' name='seats')
+					option(value='' id='0') Antal sitsar
+					option(value='2-sits' id='1') 2-sits
+					option(value='5-sits' id='2') 5-sits
+					option(value='7-sits' id='3') 7-sits
+				select(id='gear' name='gear')
+					option(value='' id='4') Växellåda
+					option(value='Automat' id='5') Automat
+					option(value='Manuell' id='6') Manuell
+				select(id='rails' name='rails')
+					option(value='' id='7') Takräcke
+					option(value='Ja' id='8') Ja
+					option(value='Nej' id='9') Nej        
+				select(id='tow' name='tow')
+					option(value='' id='10') Dragkrok
+					option(value='Ja' id='11') Ja
+					option(value='Nej' id='12') Nej 
+			button(class='button' onclick='updateCar()') Ändra
+include includes/scripts.pug
+script(src='public/js/ajax.js')
