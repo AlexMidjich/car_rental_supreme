@@ -1,9 +1,10 @@
 function editCar(data){
+	//load editcar view for spesific car
 	window.location = '/editcar?id=' + data.value;
 }
 
+//sends request to server, delete car from database
 function deleteCar(data){
-	alert(data.value);
 	if(confirm('Är du säker å att du vill ta bort denna bilen?') == true){
 		callUrl = '/edit?id=' + data.value;
 		$.ajax({
@@ -19,6 +20,7 @@ function deleteCar(data){
 	}
 }
 
+//send update request to server for specific car
 function updateCar(){
 	var car_id = document.getElementById('car_id').value;
 	var brand = document.getElementById('brand').value;
