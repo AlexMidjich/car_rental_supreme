@@ -12,7 +12,7 @@ function checkUser(email, password, req, res){
 			console.log(result[0]._id);
 			mongo.db.collection('users').update(  {_id : new mdb.ObjectId(result[0]._id)} , { $set: {session_id: new_id}}, function (error, result2) {
 				if(error) {
-					res.render('login');
+					res.render('login', {'err': 'Fel, försök igen'});
 					console.log(error);
 				} else {
 					req.session.user = {email: email, session_id: new_id};
@@ -22,7 +22,7 @@ function checkUser(email, password, req, res){
 			console.log("login sucessfull!");
 		}else{
 			console.log("login failed!");
-			res.render('login');
+			res.render('login', {'err': 'Fel, försök igen'});
 		}
 	});
 }
