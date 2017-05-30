@@ -3,32 +3,17 @@ const mdb = require('mongodb');
 
 module.exports = function(app){
 	app.get('/bekrafta', (req, res) => {
-		console.log(req.query.id);
-		console.log(req.query.start);
-		console.log(req.query.stop);
-
 		res.render('bekrafta', {"data": req.query}); //När sidan bekrafta laddas så hämtas datan som ska användas via urlen.
 });
 
-/*app.post('/bekrafta', (req, res) =>{
-  console.log(req.body.id);
-  var item = {$push: {'bokningar': {
-    bokningsstart: req.body.start,
-    bokningsstop: req.body.stop}
-  }};
-  console.log(item);
-  /*mongo.db.collection('cars').patchOne(item)
-  console.log(item);*/
-  /*res.render('bekrafta', {"data": req.body});
-});*/
-
-
 app.post('/bekrafta', (req, res) => {
 
+//Hämtar användar data och kollar av ifall session_id stämmer överens med användarens session_id, är det en match så bokas bilen.
 	mongo.db.collection('users').findOne({email: req.session.user.email}, function(error, userResult){
 		console.log(userResult);
 		if(userResult.session_id == req.session.user.session_id)
 		{
+		//Uppdaterar databsen med värden för den bokade bilen, värden är bokningsstart, bokningsstop och användarens epost.
 			mongo.db.collection('cars').update(  {_id : new mdb.ObjectId(req.body.id)} , { $push: {
 				"bokningar": {
 					bokningsstart : req.body.start,

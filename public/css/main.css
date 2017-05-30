@@ -166,6 +166,8 @@ th{
 .hidden{
   display: none;
 }
+
+/* Bekräfta sidan */
 #confirmtable{
   color: #ffffff;
 }
