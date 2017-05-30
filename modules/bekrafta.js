@@ -41,7 +41,7 @@ app.post('/bekrafta', (req, res) => {
 				} else {
 					console.log(req.body.start);
 					console.log("Bokningen bekräftad");
-					//res.redirect('/', {"data": req.body, message: "Bil bokad!"});
+					res.redirect('/tack');
 				}
 			});
 		}else
