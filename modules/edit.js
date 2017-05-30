@@ -2,6 +2,7 @@ const md5 = require('md5');
 const mongo = require('./mongo');
 const mdb = require('mongodb');
 
+//check if current user is addmin. is called att every request. 
 function checkAdmin(req, callback){
 	if(!req.session.user)
 		callback('not logged in');
@@ -20,6 +21,7 @@ function checkAdmin(req, callback){
 	}
 }
 
+//load list of cars in database
 function loadList(res){
 	mongo.db.collection('cars').find({}).toArray((error, result) => {
 		if(error)
@@ -30,6 +32,7 @@ function loadList(res){
 	});
 }
 
+//add one car to the database
 function addList(res, obj){
 	if(obj.brand === '' || obj.price == 0 || obj.seats === '' || obj.gear === '' || obj.rails === '' || obj.tow === '')
 		res.render('edit', {err : 'Fyll i alla fält!'});
@@ -54,7 +57,7 @@ module.exports = function(app){
 			}
 		});
 	});
-	
+	//post is not an ajax call, does note reurn json, 
 	app.post('/edit', (req, res) =>{
 		console.log(req.body);
 		checkAdmin(req, function(error){
@@ -66,10 +69,8 @@ module.exports = function(app){
 			}
 		});
 	});
-	
+	//deleta a car using ajax.
 	app.delete('/edit', (req, res) =>{
-		console.log('delete called');
-		console.log(req.query.id);
 		checkAdmin(req, function(error){
 			mongo.db.collection('cars').remove({_id: new mdb.ObjectId(req.query.id)}, (error, result) => {
 				if(error){
@@ -84,6 +85,7 @@ module.exports = function(app){
 		
 	});
 	
+	//load view for one specific car
 	app.get('/editcar', (req, res) => {
 		checkAdmin(req, function(error){
 			if(error){
@@ -103,6 +105,7 @@ module.exports = function(app){
 		});
 	});
 	
+	//update car 'ajax call'
 	app.patch('/editcar', (req, res) =>{
 		console.log(req.query);
 		var obj = {};
